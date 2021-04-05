@@ -24,7 +24,7 @@ class DateTimeAgoTests: XCTestCase {
         XCTAssertTrue("A minute ago" == testTimeAgo)
     }
     
-    func testshortTimeAgo() {
+    func testShortTimeAgo() {
         let testTimeAgo = Date().shortTimeAgo(since: Date() - 4.minutes)
         XCTAssertTrue("4m" == testTimeAgo)
     }
@@ -44,7 +44,7 @@ class DateTimeAgoTests: XCTestCase {
         XCTAssertTrue("Just now" == testTimeAgo)
     }
     
-    func testshortTimeAgoSinceNow() {
+    func testShortTimeAgoSinceNow() {
         let testTimeAgo = Date().shortTimeAgoSinceNow
         XCTAssertTrue("0s" == testTimeAgo)
     }

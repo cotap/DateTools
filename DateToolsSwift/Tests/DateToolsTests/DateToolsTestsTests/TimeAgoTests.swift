@@ -85,42 +85,42 @@ class TimeAgoTests : XCTestCase {
         XCTAssert(!ago.isEmpty, "Ago is nil or empty.")
     }
     
-    func testshortTimeAgo2Days() {
+    func testShortTimeAgo2Days() {
         self.date0 = self.formatter?.date(from: "2014 11 05 18:15:12.000")
         self.date1 = self.formatter?.date(from: "2014 11 07 18:15:12.000")
         let ago: String = self.date0.shortTimeAgo(since:self.date1)
         XCTAssertEqual(ago, DateToolsLocalizedString("2d"))
     }
     
-    func testshortTimeAgo1DayAndHalf() {
+    func testShortTimeAgo1DayAndHalf() {
         self.date0 = self.formatter?.date(from: "2014 11 06 9:15:12.000")
         self.date1 = self.formatter?.date(from: "2014 11 07 18:15:12.000")
         let ago: String = self.date0.shortTimeAgo(since:self.date1)
         XCTAssertEqual(ago, DateToolsLocalizedString("1d"))
     }
     
-    func testshortTimeAgoExactlyYesterday() {
+    func testShortTimeAgoExactlyYesterday() {
         self.date0 = self.formatter?.date(from: "2014 11 06 18:15:12.000")
         self.date1 = self.formatter?.date(from: "2014 11 07 18:15:12.000")
         let ago: String = self.date0.shortTimeAgo(since:self.date1)
         XCTAssertEqual(ago, DateToolsLocalizedString("1d"))
     }
     
-    func testshortTimeAgoLessThan24hoursButYesterday() {
+    func testShortTimeAgoLessThan24hoursButYesterday() {
         self.date0 = self.formatter?.date(from: "2014 11 06 20:15:12.000")
         self.date1 = self.formatter?.date(from: "2014 11 07 18:15:12.000")
         let ago: String = self.date1.shortTimeAgo(since:self.date0)
         XCTAssertEqual(ago, DateToolsLocalizedString("22h"))
     }
     
-    func testshortTimeAgoLessThan24hoursSameDay() {
+    func testShortTimeAgoLessThan24hoursSameDay() {
         self.date0 = self.formatter?.date(from: "2014 11 07 10:15:12.000")
         self.date1 = self.formatter?.date(from: "2014 11 07 18:15:12.000")
         let ago: String = self.date0.shortTimeAgo(since:self.date1)
         XCTAssertEqual(ago, DateToolsLocalizedString("8h"))
     }
     
-    func testshortTimeAgoBetween24And48Hours() {
+    func testShortTimeAgoBetween24And48Hours() {
         self.date0 = self.formatter?.date(from: "2014 11 07 10:15:12.000")
         self.date1 = self.formatter?.date(from: "2014 11 08 18:15:12.000")
         let ago: String = self.date0.shortTimeAgo(since:self.date1)
