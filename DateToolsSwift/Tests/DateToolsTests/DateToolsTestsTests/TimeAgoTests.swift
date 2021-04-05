@@ -17,6 +17,7 @@ class TimeAgoTests : XCTestCase {
     var date1: Date!
     
     override func setUp() {
+        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         self.formatter = DateFormatter()
         self.formatter.dateFormat = "yyyy MM dd HH:mm:ss.SSS"
@@ -24,16 +25,11 @@ class TimeAgoTests : XCTestCase {
         self.date1 = self.formatter.date(from: "2014 11 07 18:15:12.000")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testBasicLongTimeAgo() {
         let now: String = self.date0.timeAgo(since: self.date0)
-        XCTAssert(!now.isEmpty, "'Now' is nil or empty.")
+        XCTAssertFalse(now.isEmpty, "'Now' is nil or empty.")
         let ago: String = self.date1.timeAgo(since: self.date0)
-        XCTAssert(!ago.isEmpty, "Ago is nil or empty.")
+        XCTAssertFalse(ago.isEmpty, "Ago is nil or empty.")
     }
     
     func testLongTimeAgo2Days() {
@@ -80,9 +76,9 @@ class TimeAgoTests : XCTestCase {
     
     func testBasicshortTimeAgo() {
         let now: String = self.date0.shortTimeAgo(since:self.date0)
-        XCTAssert(!now.isEmpty, "'Now' is nil or empty.")
+        XCTAssertFalse(now.isEmpty, "'Now' is nil or empty.")
         let ago: String = self.date1.shortTimeAgo(since:self.date0)
-        XCTAssert(!ago.isEmpty, "Ago is nil or empty.")
+        XCTAssertFalse(ago.isEmpty, "Ago is nil or empty.")
     }
     
     func testShortTimeAgo2Days() {
