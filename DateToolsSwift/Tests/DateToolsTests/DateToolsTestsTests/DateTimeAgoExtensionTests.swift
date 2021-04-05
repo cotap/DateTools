@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import DateToolsTests
+@testable import DateToolsSwift
 
 class DateTimeAgoTests: XCTestCase {
     
@@ -24,7 +24,7 @@ class DateTimeAgoTests: XCTestCase {
         XCTAssertTrue("A minute ago" == testTimeAgo)
     }
     
-    func testShortTimeAgo() {
+    func testshortTimeAgo() {
         let testTimeAgo = Date().shortTimeAgo(since: Date() - 4.minutes)
         XCTAssertTrue("4m" == testTimeAgo)
     }
@@ -34,7 +34,7 @@ class DateTimeAgoTests: XCTestCase {
         XCTAssertTrue("3 seconds ago" == testTimeAgo)
     }
     
-    func testStaticShortTimeAgo() {
+    func testStaticshortTimeAgo() {
         let testTimeAgo = Date.shortTimeAgo(since: Date() - 3.hours)
         XCTAssertTrue("3h" == testTimeAgo)
     }
@@ -44,7 +44,7 @@ class DateTimeAgoTests: XCTestCase {
         XCTAssertTrue("Just now" == testTimeAgo)
     }
     
-    func testShortTimeAgoSinceNow() {
+    func testshortTimeAgoSinceNow() {
         let testTimeAgo = Date().shortTimeAgoSinceNow
         XCTAssertTrue("0s" == testTimeAgo)
     }
