@@ -25,6 +25,6 @@ let package = Package(
              name: "DateToolsSwiftTests",
              dependencies: ["DateToolsSwift"],
              path: "DateToolsSwift/Tests/DateToolsTests",
-             exclude: []),
+            exclude: ["DateToolsTests"]),
      ]
  )
