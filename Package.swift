@@ -6,7 +6,7 @@ let package = Package(
      name: "DateToolsSwift",
      defaultLocalization: "en",
      platforms: [
-         .iOS(.v8),
+         .iOS(.v9),
          .tvOS(.v9),
          .macOS(.v10_10),
      ],
