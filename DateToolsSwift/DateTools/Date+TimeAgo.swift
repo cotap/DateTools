@@ -82,10 +82,10 @@ public extension Date {
         else if (components.year! >= 1) {
             
             if (numericDates) {
-                return DateToolsLocalizedStrings("1 year ago");
+                return DateToolsLocalizedString("1 year ago");
             }
             
-            return DateToolsLocalizedStrings("Last year");
+            return DateToolsLocalizedString("Last year");
         }
         else if (components.month! >= 2) {
             return self.logicalLocalizedStringFromFormat(format: "%%d %@months ago", value: components.month!)
@@ -93,10 +93,10 @@ public extension Date {
         else if (components.month! >= 1) {
             
             if (numericDates) {
-                return DateToolsLocalizedStrings("1 month ago");
+                return DateToolsLocalizedString("1 month ago");
             }
             
-            return DateToolsLocalizedStrings("Last month");
+            return DateToolsLocalizedString("Last month");
         }
         else if (components.weekOfYear! >= 2) {
             return self.logicalLocalizedStringFromFormat(format: "%%d %@weeks ago", value: components.weekOfYear!)
@@ -104,20 +104,20 @@ public extension Date {
         else if (components.weekOfYear! >= 1) {
             
             if (numericDates) {
-                return DateToolsLocalizedStrings("1 week ago");
+                return DateToolsLocalizedString("1 week ago");
             }
             
-            return DateToolsLocalizedStrings("Last week");
+            return DateToolsLocalizedString("Last week");
         }
         else if (components.day! >= 2) {
             return self.logicalLocalizedStringFromFormat(format: "%%d %@days ago", value: components.day!)
         }
         else if (isYesterday) {
             if (numericDates) {
-                return DateToolsLocalizedStrings("1 day ago");
+                return DateToolsLocalizedString("1 day ago");
             }
             
-            return DateToolsLocalizedStrings("Yesterday");
+            return DateToolsLocalizedString("Yesterday");
         }
         else if (components.hour! >= 2) {
             return self.logicalLocalizedStringFromFormat(format: "%%d %@hours ago", value: components.hour!)
@@ -125,10 +125,10 @@ public extension Date {
         else if (components.hour! >= 1) {
             
             if (numericTimes) {
-                return DateToolsLocalizedStrings("1 hour ago");
+                return DateToolsLocalizedString("1 hour ago");
             }
             
-            return DateToolsLocalizedStrings("An hour ago");
+            return DateToolsLocalizedString("An hour ago");
         }
         else if (components.minute! >= 2) {
             return self.logicalLocalizedStringFromFormat(format: "%%d %@minutes ago", value: components.minute!)
@@ -136,10 +136,10 @@ public extension Date {
         else if (components.minute! >= 1) {
             
             if (numericTimes) {
-                return DateToolsLocalizedStrings("1 minute ago");
+                return DateToolsLocalizedString("1 minute ago");
             }
             
-            return DateToolsLocalizedStrings("A minute ago");
+            return DateToolsLocalizedString("A minute ago");
         }
         else if (components.second! >= 3) {
             return self.logicalLocalizedStringFromFormat(format: "%%d %@seconds ago", value: components.second!)
@@ -147,10 +147,10 @@ public extension Date {
         else {
             
             if (numericTimes) {
-                return DateToolsLocalizedStrings("1 second ago");
+                return DateToolsLocalizedString("1 second ago");
             }
             
-            return DateToolsLocalizedStrings("Just now");
+            return DateToolsLocalizedString("Just now");
         }
     }
     
@@ -193,7 +193,7 @@ public extension Date {
         }
         else {
             return self.logicalLocalizedStringFromFormat(format: "%%d%@s", value: components.second!)
-            //return DateToolsLocalizedStrings(@"Now"); //string not yet translated 2014.04.05
+            //return DateToolsLocalizedString(@"Now"); //string not yet translated 2014.04.05
         }
     }
     
@@ -205,7 +205,7 @@ public extension Date {
             let localeFormat = String.init(format: format, getLocaleFormatUnderscoresWithValue(Double(value)))
         #endif
         
-        return String.init(format: DateToolsLocalizedStrings(localeFormat), value)
+        return String.init(format: DateToolsLocalizedString(localeFormat), value)
     }
     
     
@@ -229,22 +229,6 @@ public extension Date {
         }
         
         return ""
-    }
-    
-    
-    // MARK: - Localization
-    
-    private func DateToolsLocalizedStrings(_ string: String) -> String {
-        //let classBundle = Bundle(for:TimeChunk.self as! AnyClass.Type).resourcePath!.appending("DateTools.bundle")
-        
-        //let bundelPath = Bundle(path:classBundle)!
-        #if os(Linux)
-        // NSLocalizedString() is not available yet, see: https://github.com/apple/swift-corelibs-foundation/blob/16f83ddcd311b768e30a93637af161676b0a5f2f/Foundation/NSData.swift
-        // However, a seemingly-equivalent method from NSBundle is: https://github.com/apple/swift-corelibs-foundation/blob/master/Foundation/NSBundle.swift
-            return Bundle.main.localizedString(forKey: string, value: "", table: "DateTools")
-        #else
-            return NSLocalizedString(string, tableName: "DateTools", bundle: Bundle.dateToolsBundle(), value: "", comment: "")
-        #endif
     }
     
     

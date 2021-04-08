@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@testable import DateToolsSwift
 
 class ViewController: UIViewController {
 
